@@ -1,4 +1,4 @@
-# Proto Binary JSON Viewer
+# Proto Local Decode Encode Viewer
 
 本地网页工具，用于 protobuf 数据编码和解码。
 
