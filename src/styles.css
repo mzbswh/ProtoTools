@@ -1,0 +1,404 @@
+:root {
+  color-scheme: light;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: #172033;
+  background: #f5f7fb;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 1px solid #c7d0e0;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #172033;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 650;
+  min-height: 38px;
+  padding: 0 14px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.48;
+}
+
+small {
+  color: #6b7688;
+  font-size: 12px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  height: 100vh;
+  padding: 22px;
+  overflow: hidden;
+}
+
+.hero {
+  align-items: flex-end;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.hero h1 {
+  font-size: 28px;
+  line-height: 1.15;
+  margin: 0 0 8px;
+}
+
+.hero p {
+  color: #5e6a7f;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.hero-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.hero-status span {
+  background: #e8edf7;
+  border: 1px solid #d7deec;
+  border-radius: 6px;
+  color: #3e4c63;
+  font-size: 13px;
+  font-weight: 650;
+  padding: 7px 10px;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(320px, 400px) minmax(0, 1fr);
+  gap: 18px;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.panel {
+  background: #ffffff;
+  border: 1px solid #dfe5ef;
+  border-radius: 8px;
+  box-shadow: 0 14px 38px rgba(38, 54, 80, 0.08);
+  overflow: hidden;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 18px;
+  overflow-y: auto;
+}
+
+.mode-tabs {
+  background: #eef3fb;
+  border: 1px solid #d9e2f0;
+  border-radius: 8px;
+  display: grid;
+  gap: 4px;
+  grid-template-columns: 1fr 1fr;
+  padding: 4px;
+}
+
+.mode-tabs button {
+  border-color: transparent;
+  background: transparent;
+}
+
+.mode-tabs button.active {
+  background: #ffffff;
+  border-color: #cfd7e6;
+  box-shadow: 0 5px 14px rgba(38, 54, 80, 0.08);
+  color: #315dd7;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field span,
+.source-list h2 {
+  color: #445168;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.field input[type="text"],
+.field input[type="email"],
+.field select,
+.field textarea {
+  border: 1px solid #cfd7e6;
+  border-radius: 6px;
+  color: #172033;
+  font-size: 14px;
+  outline: none;
+  padding: 10px 11px;
+  width: 100%;
+}
+
+.field textarea {
+  min-height: 170px;
+  resize: vertical;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: #4d76d4;
+  box-shadow: 0 0 0 3px rgba(77, 118, 212, 0.14);
+}
+
+/* custom file input */
+/* 视觉隐藏，仍保持可点击（display:none 在部分浏览器中 .click() 无效） */
+.file-input-hidden {
+  position: fixed;
+  top: -9999px;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.file-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-btn {
+  flex-shrink: 0;
+  min-height: 34px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+
+.file-name-display {
+  color: #6b7688;
+  font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.primary {
+  background: #315dd7;
+  border-color: #315dd7;
+  color: white;
+}
+
+.source-list {
+  border-top: 1px solid #edf1f7;
+  padding-top: 14px;
+}
+
+.source-list h2 {
+  margin: 0 0 8px;
+}
+
+.source-list p,
+.source-list li {
+  color: #6b7688;
+  font-size: 13px;
+}
+
+.source-list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  max-height: 130px;
+  overflow: auto;
+  padding-left: 18px;
+}
+
+.output {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.output-toolbar {
+  align-items: center;
+  border-bottom: 1px solid #edf1f7;
+  display: flex;
+  flex-shrink: 0;
+  gap: 14px;
+  justify-content: space-between;
+  padding: 12px 14px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.state {
+  color: #5e6a7f;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.state.ok {
+  color: #177245;
+}
+
+.state.error {
+  color: #b3261e;
+}
+
+pre {
+  flex: 1;
+  margin: 0;
+  overflow: auto;
+  padding: 18px;
+  white-space: pre;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+/* ---- JSON Viewer ---- */
+
+.json-viewer {
+  flex: 1;
+  overflow: auto;
+  padding: 18px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.jv-indent {
+  padding-left: 16px;
+}
+
+.jv-toggle {
+  all: unset;
+  cursor: pointer;
+  color: #7c8fa8;
+  font-size: 10px;
+  margin-right: 3px;
+  user-select: none;
+  vertical-align: middle;
+}
+
+.jv-toggle:hover {
+  color: #315dd7;
+}
+
+.jv-key {
+  color: #315dd7;
+}
+
+.jv-colon {
+  color: #7c8fa8;
+}
+
+.jv-string {
+  color: #177245;
+}
+
+.jv-number {
+  color: #c2410c;
+}
+
+.jv-boolean {
+  color: #7c3aed;
+}
+
+.jv-null {
+  color: #b3261e;
+  font-style: italic;
+}
+
+.jv-bracket {
+  color: #172033;
+}
+
+.jv-comma {
+  color: #7c8fa8;
+}
+
+.jv-ellipsis {
+  color: #7c8fa8;
+  cursor: pointer;
+  font-style: italic;
+}
+
+.jv-ellipsis:hover {
+  color: #315dd7;
+  text-decoration: underline;
+}
+
+.jv-load-more {
+  all: unset;
+  cursor: pointer;
+  color: #315dd7;
+  font-size: 11px;
+  font-style: italic;
+  padding: 2px 0;
+}
+
+.jv-load-more:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 860px) {
+  .app {
+    height: auto;
+    overflow: visible;
+    padding: 16px;
+  }
+
+  .hero {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .hero-status {
+    justify-content: flex-start;
+  }
+
+  .workspace {
+    grid-template-columns: 1fr;
+    overflow: visible;
+  }
+
+  .output {
+    min-height: 540px;
+  }
+}
